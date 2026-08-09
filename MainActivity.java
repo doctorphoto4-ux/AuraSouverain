@@ -97,3 +97,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+// Gestionnaire d'autodestruction des messages (24h)
+public class MessageManager {
+    private static final long EXPIRATION_TIME_MS = 24 * 60 * 60 * 1000;
+
+    public boolean isMessageExpired(long timestampEnvoi) {
+        long tempsActuel = System.currentTimeMillis();
+        return (tempsActuel - timestampEnvoi) > EXPIRATION_TIME_MS;
+    }
+}
